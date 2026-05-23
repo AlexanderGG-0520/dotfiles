@@ -1,0 +1,108 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 34,
+  "spacing": 4,
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "tray",
+    "cpu",
+    "memory",
+    "pulseaudio",
+    "network",
+    "battery",
+    "custom/notification",
+    "custom/power"
+  ],
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "format": "{icon}",
+    "format-icons": {
+      "1": "󰖟",
+      "2": "󰆍",
+      "3": "󰨞",
+      "4": "󰙯",
+      "5": "󰎁",
+      "6": "󰊴",
+      "7": "󰻂",
+      "8": "󰉋",
+      "9": "󰣇",
+      "urgent": "󱨇",
+      "active": "󰮯",
+      "default": "󰧞"
+    }
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 48,
+    "separate-outputs": true
+  },
+  "clock": {
+    "format": "󰥔 {:%H:%M}",
+    "format-alt": "󰃭 {:%Y-%m-%d %A}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "cpu": {
+    "format": "󰻠 {usage}%",
+    "tooltip": true
+  },
+  "memory": {
+    "format": "󰍛 {}%",
+    "tooltip": true
+  },
+  "pulseaudio": {
+    "format": "󰕾 {volume}%",
+    "format-muted": "󰝟 muted",
+    "on-click": "pavucontrol",
+    "scroll-step": 5
+  },
+  "network": {
+    "format-wifi": "󰤨 {essid}",
+    "format-ethernet": "󰈀 wired",
+    "format-disconnected": "󰤭 offline",
+    "tooltip-format": "{ifname}: {ipaddr}"
+  },
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰚥 {capacity}%",
+    "format-icons": [
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ]
+  },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 8
+  },
+  "custom/notification": {
+    "format": "󰂚",
+    "tooltip": false,
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw"
+  },
+  "custom/power": {
+    "format": "󰐥",
+    "tooltip": false,
+    "on-click": "wlogout"
+  }
+}

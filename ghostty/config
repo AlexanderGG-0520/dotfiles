@@ -1,0 +1,41 @@
+# ===== Alex Ghostty Theme =====
+font-family = JetBrainsMono Nerd Font
+font-size = 12
+
+background = 0b0f19
+foreground = f2f5f8
+selection-background = 1f6feb
+selection-foreground = ffffff
+
+cursor-color = 58a6ff
+cursor-text = 0b0f19
+
+palette = 0=0b0f19
+palette = 1=ff7b72
+palette = 2=7ee787
+palette = 3=f2cc60
+palette = 4=58a6ff
+palette = 5=bc8cff
+palette = 6=39c5cf
+palette = 7=f2f5f8
+palette = 8=6e7681
+palette = 9=ffa198
+palette = 10=56d364
+palette = 11=e3b341
+palette = 12=79c0ff
+palette = 13=d2a8ff
+palette = 14=56d4dd
+palette = 15=ffffff
+
+background-opacity = 0.90
+background-blur-radius = 20
+
+window-padding-x = 10
+window-padding-y = 10
+
+confirm-close-surface = false
+copy-on-select = clipboard
+clipboard-read = allow
+clipboard-write = allow
+
+mouse-hide-while-typing = true

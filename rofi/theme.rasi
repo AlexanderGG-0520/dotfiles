@@ -1,0 +1,90 @@
+* {
+  bg: #0b0f19;
+  bg-soft: #111827;
+  bg-alt: #161b26;
+  fg: #f2f5f8;
+  muted: #c0c8d2;
+  accent: #58a6ff;
+  selected: #1f6feb;
+  selected-soft: #1b3a5f;
+  selected-fg: #ffffff;
+  border: #58a6ff;
+}
+
+window {
+  width: 42%;
+  border: 2px;
+  border-color: @border;
+  border-radius: 22px;
+  background-color: @bg;
+}
+
+mainbox {
+  background-color: @bg;
+  padding: 18px;
+  spacing: 12px;
+}
+
+inputbar {
+  background-color: @bg-alt;
+  padding: 12px;
+  border-radius: 14px;
+  children: [prompt, entry];
+}
+
+prompt {
+  background-color: transparent;
+  text-color: @accent;
+  padding: 0 10px 0 0;
+}
+
+entry {
+  background-color: transparent;
+  text-color: @fg;
+  placeholder: "Search...";
+  placeholder-color: @muted;
+}
+
+listview {
+  background-color: @bg;
+  lines: 8;
+  columns: 1;
+  spacing: 8px;
+}
+
+element {
+  background-color: @bg-soft;
+  text-color: @fg;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+element normal.normal {
+  background-color: @bg-soft;
+  text-color: @fg;
+}
+
+element alternate.normal {
+  background-color: @bg-soft;
+  text-color: @fg;
+}
+
+element selected.normal {
+  background-color: @selected;
+  text-color: @selected-fg;
+}
+
+element-icon {
+  background-color: transparent;
+  size: 24px;
+  margin: 0 10px 0 0;
+}
+
+element-text {
+  background-color: transparent;
+  text-color: inherit;
+}
+
+element selected.normal element-text {
+  text-color: @selected-fg;
+}

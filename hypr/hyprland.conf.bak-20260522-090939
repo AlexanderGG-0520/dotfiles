@@ -1,0 +1,160 @@
+# This config is a STUB! This should never be generated.
+# Use the default lua config from https://github.com/hyprwm/Hyprland/blob/main/example/hyprland.lua
+
+
+
+$mainMod = SUPER
+$terminal = ghostty
+$fileManager = dolphin
+$menu = rofi -show run
+$browser = chromium
+$notificationCenter = swaync-client
+$hyprlock = hyprlock
+$wlogout = wlogout
+
+bind = $mainMod, Q, exec, $terminal
+bind = $mainMod, C, killactive,
+bind = $mainMod, M, exec, command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch exit
+bind = $mainMod, E, exec, $fileManager
+bind = $mainMod, V, togglefloating,
+bind = $mainMod, R, exec, $menu
+bind = $mainMod, B, exec, $browser
+bind = $mainMod, N, exec, $notificationCenter -t -sw
+bind = $mainMod, L, exec, $hyprlock
+bind = $mainMod SHIFT, E, exec, wlogout
+bind = $mainMod SHIFT, 1, movetoworkspacesilent, 1
+bind = $mainMod SHIFT, 2, movetoworkspacesilent, 2
+bind = $mainMod SHIFT, 3, movetoworkspacesilent, 3
+bind = $mainMod SHIFT, 4, movetoworkspacesilent, 4
+bind = $mainMod SHIFT, 5, movetoworkspacesilent, 5
+bind = $mainMod SHIFT, 6, movetoworkspacesilent, 6
+bind = $mainMod SHIFT, 7, movetoworkspacesilent, 7
+bind = $mainMod SHIFT, 8, movetoworkspacesilent, 8
+bind = $mainMod SHIFT, 9, movetoworkspacesilent, 9
+bind = ALT, Tab, cyclenext
+bind = ALT, Tab, bringactivetotop
+bind = ALT SHIFT, Tab, cyclenext, prev
+bind = ALT SHIFT, Tab, bringactivetotop
+bind = $mainMod, P, pseudo
+
+exec-once = /usr/lib/polkit-kde-authentication-agent-1
+exec-once = hyprpaper
+exec-once = hypridle
+exec-once = swaync
+exec-once = waybar
+exec-once = wl-paste --type text --watch cliphist store
+exec-once = wl-paste --type image --watch cliphist store
+exec-once = fcitx5 -d
+exec-once = systemctl --user start hyprpolkitagent
+
+env = GTK_IM_MODULE,fcitx
+env = QT_IM_MODULE,fcitx
+env = XMODIFIERS,@im=fcitx
+env = SDL_IM_MODULE,fcitx
+env = GLFW_IM_MODULE,ibus
+
+input {
+  accel_profile = flat
+}
+
+windowrule = match:class ^(Overwatch.exe)$, fullscreen 1
+
+misc {
+  vrr = 1
+}
+monitor = DP-1, 1920x1080@144, 0x0, 1
+monitor = DP-2, 1920x1080@280, 1920x0, 1
+monitor = DP-3, 1920x1080@144, 3840x0, 1
+
+# ===== Look =====
+general {
+    gaps_in = 6
+    gaps_out = 14
+    border_size = 2
+    col.active_border = rgba(89b4faee) rgba(cba6f7ee) 45deg
+    col.inactive_border = rgba(31324488)
+    resize_on_border = true
+    layout = dwindle
+}
+
+decoration {
+    rounding = 16
+    active_opacity = 0.96
+    inactive_opacity = 0.90
+
+    blur {
+        enabled = true
+        size = 8
+        passes = 3
+        vibrancy = 0.16
+        new_optimizations = true
+    }
+
+    shadow {
+        enabled = true
+        range = 20
+        render_power = 3
+        color = rgba(00000066)
+    }
+}
+
+animations {
+    enabled = true
+
+    bezier = smoothOut, 0.36, 0, 0.66, -0.56
+    bezier = smoothIn, 0.25, 1, 0.5, 1
+    bezier = overshot, 0.05, 0.9, 0.1, 1.05
+
+    animation = windows, 1, 5, overshot, slide
+    animation = windowsOut, 1, 4, smoothOut, slide
+    animation = border, 1, 8, smoothIn
+    animation = fade, 1, 5, smoothIn
+    animation = workspaces, 1, 5, overshot, slide
+}
+
+dwindle {
+    preserve_split = true
+}
+
+# Qt theme
+env = QT_QPA_PLATFORMTHEME,qt6ct
+env = QT_STYLE_OVERRIDE,kvantum
+
+# ===== Alex floating rules =====
+# Common dialogs
+windowrulev2 = float, title:^(Open File)(.*)$
+windowrulev2 = float, title:^(Save File)(.*)$
+windowrulev2 = float, title:^(Select a File)(.*)$
+windowrulev2 = float, title:^(Choose Files)(.*)$
+windowrulev2 = float, title:^(File Upload)(.*)$
+windowrulev2 = float, title:^(Authentication Required)(.*)$
+windowrulev2 = float, title:^(Password Required)(.*)$
+
+# Center common dialogs
+windowrulev2 = center, title:^(Open File)(.*)$
+windowrulev2 = center, title:^(Save File)(.*)$
+windowrulev2 = center, title:^(Select a File)(.*)$
+windowrulev2 = center, title:^(Choose Files)(.*)$
+windowrulev2 = center, title:^(File Upload)(.*)$
+windowrulev2 = center, title:^(Authentication Required)(.*)$
+windowrulev2 = center, title:^(Password Required)(.*)$
+
+# Useful utility windows
+windowrulev2 = float, class:^(pavucontrol)$
+windowrulev2 = center, class:^(pavucontrol)$
+windowrulev2 = size 760 520, class:^(pavucontrol)$
+
+windowrulev2 = float, class:^(blueman-manager)$
+windowrulev2 = center, class:^(blueman-manager)$
+windowrulev2 = size 760 520, class:^(blueman-manager)$
+
+windowrulev2 = float, class:^(nm-connection-editor)$
+windowrulev2 = center, class:^(nm-connection-editor)$
+windowrulev2 = size 760 540, class:^(nm-connection-editor)$
+
+# Picture in Picture
+windowrulev2 = float, title:^(Picture-in-Picture)$
+windowrulev2 = pin, title:^(Picture-in-Picture)$
+windowrulev2 = keepaspectratio, title:^(Picture-in-Picture)$
+windowrulev2 = move 100%-430 100%-260, title:^(Picture-in-Picture)$
+windowrulev2 = size 400 225, title:^(Picture-in-Picture)$
