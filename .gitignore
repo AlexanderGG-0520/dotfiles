@@ -1,0 +1,30 @@
+# Secrets and private local overrides
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+
+# Caches, histories, backups, logs, and runtime state
+**/.cache/
+**/cache/
+**/logs/
+**/*history*
+**/*.bak
+**/*.bak-*
+**/*.log
+**/nvim-pack-lock.json
+**/fish_variables
+**/cached_layouts
+
+# Credentials and authentication material
+.ssh/
+.gnupg/
+.aws/
+.kube/
+.config/gh/hosts.yml
+.config/gcloud/
+.config/docker/config.json

@@ -1,0 +1,13 @@
+[credential]
+	helper = 
+	helper = /usr/bin/git-credential-manager
+	credentialStore = cache
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[user]
+	email = uket.panda.1st@gmail.com
+	name = alexandergg-0520
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim
