@@ -102,6 +102,16 @@ hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(noctCall .. "panel-toggle control-cen
 ---- WORKSPACES & MONITORS ----
 -------------------------------
 
+local function focusWorkspaceOnCursorMonitor(workspace)
+    local monitor = hl.get_monitor_at_cursor()
+    if not monitor then
+        return
+    end
+
+    hl.dispatch(hl.dsp.focus({ monitor = monitor }))
+    hl.dispatch(hl.dsp.focus({ workspace = workspace }))
+end
+
 -- Focus on monitors
 hl.bind(mainMod .. " + 1", hl.dsp.focus({ monitor = MONITOR1 }))
 hl.bind(mainMod .. " + 2", hl.dsp.focus({ monitor = MONITOR2 }))
@@ -119,10 +129,14 @@ for i = 1, NUM_WPM do
     hl.bind(mainMod .. " + CONTROL + " .. key, hl.dsp.focus({ workspace = "m~" .. i }))
 end
 
--- Move to adjacent workspaces and next empty on a given monitor
-hl.bind(mainMod .. " + CONTROL + Right",       hl.dsp.focus({ workspace = "m+1" }))
-hl.bind(mainMod .. " + CONTROL + Left",        hl.dsp.focus({ workspace = "m-1" }))
-hl.bind(mainMod .. " + CONTROL + Down",        hl.dsp.focus({ workspace = "emptym" }))
+-- Move to adjacent workspaces on the monitor under the cursor, and next empty on the focused monitor
+hl.bind(mainMod .. " + CONTROL + Right", function()
+    focusWorkspaceOnCursorMonitor("m+1")
+end)
+hl.bind(mainMod .. " + CONTROL + Left", function()
+    focusWorkspaceOnCursorMonitor("m-1")
+end)
+hl.bind(mainMod .. " + CONTROL + Down", hl.dsp.focus({ workspace = "emptym" }))
 
 -- Scroll through existing workspaces & monitors
 hl.bind(mainMod .. " + mouse_down",           hl.dsp.focus({ workspace = "m+1" }))
