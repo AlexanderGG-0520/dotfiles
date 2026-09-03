@@ -1,0 +1,10 @@
+# Migration artifacts and runtime/state data are never canonical dotfiles.
+.migration-backup/
+**/.cache/
+**/cache/
+**/state/
+**/*.sock
+**/*.pid
+*token*
+*secret*
+*credential*

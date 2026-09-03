@@ -1,0 +1,6 @@
+module Sapphire.Theme
+singleton Colors 1.0 Colors.qml
+singleton Metrics 1.0 Metrics.qml
+singleton Typography 1.0 Typography.qml
+singleton Animations 1.0 Animations.qml
+singleton Icons 1.0 Icons.qml

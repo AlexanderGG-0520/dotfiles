@@ -1,0 +1,4 @@
+singleton PopupState 1.0 PopupState.qml
+singleton SystemCapabilities 1.0 SystemCapabilities.qml
+singleton PowerActions 1.0 PowerActions.qml
+singleton WallpaperService 1.0 WallpaperService.qml
